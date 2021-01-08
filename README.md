@@ -156,3 +156,14 @@ type Shape = Square | Rectangle | Circle;
 type Tuple = [string, boolean];
 const t: Tuple = ['', '']; // error
 ```
+
+## 제네릭
+- 생성 시점에 타입을 명시하여 다양한 타입을 사용
+- 한번의 선언으로 다양한 타입에 재사용 가능
+- 함수에도 이용할 수 있음
+```ts
+// 인수에 의해 타입 매개변수가 결정된다.
+function reverse<T>(items: T[]): T[] {
+  return items.reverse();
+}
+```
