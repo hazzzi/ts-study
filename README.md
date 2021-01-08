@@ -56,3 +56,9 @@ const multiply2 = (x: number, y: number): number => x * y
     - `const today: Date = new Date();`
     - `const elem: HTMLElement = document.getElementById('myId');`
     - `const person: Person = new Person()`
+
+## 정적 타이핑
+- 타입이 결정된 후에는 타입을 변경할 수 없다.
+- 잘못된 타입의 값이 할당 또는 반환되면 컴파일러가 이를 감지한다.
+- 장점: 코드 가독성, 예측성, 안정성 향상
+
