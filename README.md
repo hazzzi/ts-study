@@ -66,3 +66,63 @@ const multiply2 = (x: number, y: number): number => x * y
 - `let foo = 123;` 타입을 선언하진 않았으나 타입추론에 의해서 number 타입으로 결정됨. 
 - 타입이 결정 된 후에는 타입을 변경할 수 없음
 - 타입 선언 생략하고 값도 할당하지 않아서 타입추론을 할수 없을땐 `any` 타입이 됨.
+
+## 인터페이스
+- 변수 타입으로 사용할 수 있다.
+```ts 
+// 인터페이스 정의
+interface Todo {
+  id: number;
+  content: string;
+  completed: boolean;
+}
+
+let todo: Todo;
+
+todo = { id: 1, content: 'typescript', completed: false };
+```
+- 함수 인터페이스
+```ts
+// 함수 인터페이스 정의
+interface SquareFunc {
+  (num: number): number;
+}
+
+// 함수 인터페이스 구현
+const squareFunc: SquareFunc = function (num: number) {
+  return num * num;
+}
+
+console.log(squareFunc(10))
+```
+- TypeScript는 해당 인터페이스에서 정의한 `프로퍼티`나 `메소드`를 가지고 있다면 그 인터페이스를 `구현`한 것으로 인정한다. 이것을 덕 타이핑(duck typing) 또는 구조적 타이핑(structural typing)이라 한다.
+
+인터페이스를 변수에 사용할 경우에도 덕 타이핑은 적용된다.
+
+```ts
+interface IDuck { // 1
+  quack(): void;
+}
+
+class MallardDuck implements IDuck { // 3
+  quack() {
+    console.log('Quack!');
+  }
+}
+
+class RedheadDuck { // 4
+  quack() {
+    console.log('q~uack!');
+  }
+}
+
+function makeNoise(duck: IDuck): void { // 2
+  duck.quack();
+}
+
+makeNoise(new MallardDuck()); // Quack!
+makeNoise(new RedheadDuck()); // q~uack! // 5
+```
+- 인터페이스의 프로퍼티가 선택적으로 필요한경우 `?` 를 붙인다.
+  - ex: `age? : number;`
+- `extends` 키워드를 사용하여 인터페이스 또는 클래스를 상속받을 수 있다. 복수의 인터페이스 상속 가능
