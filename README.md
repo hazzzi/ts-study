@@ -126,3 +126,33 @@ makeNoise(new RedheadDuck()); // q~uack! // 5
 - 인터페이스의 프로퍼티가 선택적으로 필요한경우 `?` 를 붙인다.
   - ex: `age? : number;`
 - `extends` 키워드를 사용하여 인터페이스 또는 클래스를 상속받을 수 있다. 복수의 인터페이스 상속 가능
+
+## 타입 앨리어스
+- 인터페이스와 유사하지만 원시값, 유니온 타입, 튜플 등도 타입으로 지정가능
+- extends 또는 implements 될 수 없다.
+```ts
+// 문자열 리터럴
+type Str = 'Lee';
+
+// 유니온
+type Union = string | null;
+
+// 문자열 유니온
+type Name = 'Lee' | 'Kim';
+
+// 숫자 리터럴 유니온
+type Num = 1 | 2 | 3 | 4;
+
+// 객체 리터럴 유니온
+type Obj = { a: 1 } | {b: 2};
+
+// 함수 유니온
+type Func = (() => string) | (() => void)
+
+// 인터페이스 유니온
+type Shape = Square | Rectangle | Circle;
+
+// 튜플로 타입지정
+type Tuple = [string, boolean];
+const t: Tuple = ['', '']; // error
+```
