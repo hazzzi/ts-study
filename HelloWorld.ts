@@ -1,6 +1,9 @@
+import * as _ from "lodash"
+
 class Startup {
     public static main(): number {
-        console.log('Hello Angular2');
+        const group = _.groupBy(['one', 'two', 'three'], 'length');
+        console.log(group);
         return 0;
     }
 }
