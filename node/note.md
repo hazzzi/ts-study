@@ -17,6 +17,8 @@
 ## 모듈
 - js는 client-side, script 태그를 이용하여 외부 스크립트 파일을 가져올순 있지만 파일마다 독립적인 파일 scope를 갖지않고 하나의 전격객체에 바인딩됨. 전역변수가 중복될 수 있음
 - 대부분의 브라우저가 ES6 모듈을 지원하지 않으므로 `Browserify` 또는 `webpack`과 같은 모듈 번들러를 사용
+- node는 module 단위로 각 기능을 분할할 수 있다.
+- module은 파일과 1대1의 대응 관계를 가짐
 
 ## commonJs
 - 동기 방식(synchronous loading)으로 동작함
