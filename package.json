@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/hazzzi/ts-study#readme",
   "dependencies": {
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "node-emoji": "^1.10.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.167"
