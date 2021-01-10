@@ -1,5 +1,6 @@
 // http 모듈 로드
-var http = require("http");
+const http = require("http");
+const url = require("url");
 
 // 8888 포트를 리슨하는 http 서버 생성
 // 1
@@ -13,16 +14,19 @@ var http = require("http");
 //     response.end();
 // }).listen(8888)
 
-function start() {
-    function onRequest(request, response) {
-        console.log("Request received.");
+const start = (route) => {
+    const onRequest = (request, response) => {
+        var pathname = url.parse(request.url).pathname;
+        console.log(`Request for ${pathname} received.`)
+
+        route(pathname);
+
         response.writeHead(200, { "Content-Type": "text/plain" });
         response.write("hello world");
         response.end();
     }
 
     http.createServer(onRequest).listen(8888)
-
     console.log("server has started")
 }
 
