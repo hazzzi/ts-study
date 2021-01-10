@@ -40,4 +40,6 @@
   2. 변수나 자료구조에 저장할 수 있다.
   3. 함수의 파라미터로 전달 할 수 있다.
      1. `function cal(func, num) { return func(num) }`
-  4. 반환값으로 사용할 수 있다. 
+  4. 반환값으로 사용할 수 있다.
+
+- note> 대부분의 브라우저가 http://localhost:8888/ 을 요청할 때 http://localhost:8888/favicon.ico를 로드하려고함 
