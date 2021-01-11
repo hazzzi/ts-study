@@ -14,15 +14,14 @@ const url = require("url");
 //     response.end();
 // }).listen(8888)
 
-const start = (route) => {
+const start = (route, handle) => {
     const onRequest = (request, response) => {
         var pathname = url.parse(request.url).pathname;
         console.log(`Request for ${pathname} received.`)
 
-        route(pathname);
-
         response.writeHead(200, { "Content-Type": "text/plain" });
-        response.write("hello world");
+        const content = route(handle, pathname);
+        response.write(content);
         response.end();
     }
 
