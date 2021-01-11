@@ -8,8 +8,6 @@ const start = (response) => {
         response.write(stdout);
         response.end();
     })
-
-    return content;
 }
 
 const upload = (response) => {
