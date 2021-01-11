@@ -16,13 +16,19 @@ const url = require("url");
 
 const start = (route, handle) => {
     const onRequest = (request, response) => {
-        var pathname = url.parse(request.url).pathname;
+        let postData = "";
+        const pathname = url.parse(request.url).pathname;
         console.log(`Request for ${pathname} received.`)
 
-        const content = route(handle, pathname, response);
-        // response.writeHead(200, { "Content-Type": "text/plain" });
-        // response.write(content);
-        // response.end();
+        request.setEncoding("utf8");
+        
+        request.addListener("data", (postDataChunck) => {
+            postData += postDataChunck;
+            console.log(`Received POST data chunk ${postDataChunck}.`)
+        })
+        request.addListener("end", () => {
+            route(handle, pathname, response, postData)
+        })
     }
 
     http.createServer(onRequest).listen(8888)
