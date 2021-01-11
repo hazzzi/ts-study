@@ -12,4 +12,6 @@ app.post('/signin', (req: express.Request, res: express.Response) => {
     const { username, password } = req.body;
     res.send({ username, password });
 })
+app.use(express.static('public'))
+
 app.listen(3000, () => console.log('Example app listening on port 3000'))
