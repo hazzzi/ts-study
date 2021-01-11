@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hazzzi/ts-study#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "formidable": "^1.2.2",
     "lodash": "^4.17.20",
     "node-emoji": "^1.10.0"
